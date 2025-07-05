@@ -1,0 +1,19 @@
+{
+    "name": "luis/devjobs",
+    "description": "A minimal PHP job listing application where users can create and apply for jobs.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luis Pacheco",
+            "email": "88567023+pacheco-luis@users.noreply.github.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "src/Framework",
+            "App\\": "src/App"
+        }
+    }
+}
