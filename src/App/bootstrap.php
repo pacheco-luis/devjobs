@@ -5,10 +5,10 @@ declare(strict_types=1);
 include __DIR__ . "/../../vendor/autoload.php";
 
 use Framework\App;
-use App\Controllers\HomeController;
+use function App\Config\registerRoutes;
 
 $app = new App();
 
-$app->get('/', [HomeController::class, 'index']);
+registerRoutes($app);
 
 return $app;

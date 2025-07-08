@@ -18,3 +18,8 @@ function inspectAndDie(mixed $value): never
     echo "</pre>";
     die();
 }
+
+function escape(mixed $value): string
+{
+    return htmlspecialchars((string) $value);
+}
