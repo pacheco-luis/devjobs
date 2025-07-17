@@ -1,0 +1,24 @@
+{
+  "name": "devjobs",
+  "version": "1.0.0",
+  "description": "A minimal PHP job listing application where users can create and apply for jobs.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i public/assets/css/input.css -o public/assets/css/main.css --watch",
+    "build": "npx @tailwindcss/cli -i public/assets/css/input.css -o public/assets/css/main.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pacheco-luis/devjobs.git"
+  },
+  "author": "Luis Pacheco",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pacheco-luis/devjobs/issues"
+  },
+  "homepage": "https://github.com/pacheco-luis/devjobs#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "tailwindcss": "^4.1.11"
+  }
+}
