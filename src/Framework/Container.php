@@ -17,7 +17,7 @@ class Container
         $this->definitions = [...$this->definitions, ...$newDefinitions];
     }
 
-    public function resolve(string $className): null|object|string
+    public function resolve(string $className): object
     {
         $reflectionClass = new ReflectionClass($className);
 

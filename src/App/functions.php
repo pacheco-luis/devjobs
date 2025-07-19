@@ -17,5 +17,12 @@ function inspectAndDie(mixed $value): never
 
 function escape(mixed $value): string
 {
-    return htmlspecialchars((string)$value);
+    return htmlspecialchars((string) $value);
+}
+
+function redirectTo(string $path): never
+{
+    header("Location: " . $path);
+    http_response_code(302);
+    exit;
 }

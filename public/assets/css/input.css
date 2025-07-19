@@ -27,4 +27,7 @@
     --color-light-grey: hsl(210, 22%, 97%);
     --color-grey: hsl(212, 23%, 69%);
     --color-dark-grey: hsl(214, 17%, 51%);
+    --color-red: hsl(16, 98%, 52%);
+    --color-light-red: hsl(14, 100%, 97%);
+
 }
