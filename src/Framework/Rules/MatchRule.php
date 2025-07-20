@@ -11,7 +11,7 @@ class MatchRule implements RuleInterface
     public function validate(array $data, string $field, array $params): bool
     {
         $fieldOne = $data[$field];
-        $fieldTwo = $params[$params[0]];
+        $fieldTwo = $data[$params[0]];
 
         return $fieldOne === $fieldTwo;
     }
