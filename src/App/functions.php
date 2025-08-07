@@ -1,5 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
+use Framework\Http;
+
 function inspect(mixed $value): void
 {
     echo "<pre>";
@@ -23,6 +27,6 @@ function escape(mixed $value): string
 function redirectTo(string $path): never
 {
     header("Location: " . $path);
-    http_response_code(302);
+    http_response_code(Http::REDIRECT_STATUS_CODE);
     exit;
 }

@@ -10,13 +10,15 @@ use Framework\{
 use App\Config\Paths;
 use App\Services\{
     ValidatorService,
-    UserService
+    UserService,
+    PostingService,
+    UploadService
 };
 
 return [
-    TemplateEngine::class => fn () => new TemplateEngine(Paths::VIEW),
-    ValidatorService::class => fn () => new ValidatorService(),
-    Database::class => fn () => new Database($_ENV['DB_DRIVER'], [
+    TemplateEngine::class => fn() => new TemplateEngine(Paths::VIEW),
+    ValidatorService::class => fn() => new ValidatorService(),
+    Database::class => fn() => new Database($_ENV['DB_DRIVER'], [
         'host' => $_ENV['DB_HOST'],
         'port' => $_ENV['DB_PORT'],
         'dbname' => $_ENV['DB_NAME']
@@ -25,5 +27,15 @@ return [
         $db = $container->get(Database::class);
 
         return new UserService($db);
+    },
+    PostingService::class => function (Container $container) {
+        $db = $container->get(Database::class);
+
+        return new PostingService($db);
+    },
+    UploadService::class => function (Container $container) {
+        $db = $container->get(Database::class);
+
+        return new UploadService($db);
     }
 ];

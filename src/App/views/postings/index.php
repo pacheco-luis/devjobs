@@ -1,82 +1,8 @@
 <?php include $this->resolve("partials/_header.php"); ?>
 
-<h1 class="sr-only">Job Listings</h1>
+<h1 class="sr-only">Job Postings</h1>
 
 <?php include $this->resolve("partials/_breadcrumbs.php"); ?>
-
-<!-- SEARCH BAR SECTION -->
-<section
-        aria-labelledby="search-heading"
-        class="py-8"
->
-    <h3
-            id="search-heading"
-            class="sr-only"
-    >Search Jobs</h3>
-
-    <form
-            action="/"
-            method="GET"
-            role="search"
-            aria-label="Job search form"
-            class="bg-white py-2 rounded-md"
-    >
-        <!-- Input:Keywords -->
-        <div class="min-h-20 px-6 py-4 space-y-2">
-            <label
-                    for="formInput#keywords"
-                    class="sr-only"
-            >Filter by title, companies, expertise</label>
-            <input
-                    type="text"
-                    name="keywords"
-                    id="formInput#keywords"
-                    placeholder="Filter by title, companies, expertise..."
-                    class="w-full px-4 py-3 text-base text-very-dark-blue caret-violet border-2 border-very-dark-blue/10 rounded-sm active:outline-none active:bg-violet/10 focus:outline-none focus:bg-violet/10 placeholder:text-very-dark-blue/50"
-                    value="<?php echo escape((string) $keywords); ?>"
-            />
-        </div>
-
-        <!-- Input:Location -->
-        <div class="min-h-20 px-6 py-4 space-y-2">
-            <label
-                    for="formInput#location"
-                    class="sr-only"
-            >Filter by location</label>
-            <input
-                    type="text"
-                    name="location"
-                    id="formInput#location"
-                    placeholder="Filter by location..."
-                    class="w-full px-4 py-3 text-base text-very-dark-blue caret-violet border-2 border-very-dark-blue/10 rounded-sm active:outline-none active:bg-violet/10 focus:outline-none focus:bg-violet/10 placeholder:text-very-dark-blue/50"
-            />
-        </div>
-
-        <!-- Input:Contract -->
-        <div class="min-h-20 px-6 py-4 flex items-center gap-x-4">
-            <input
-                    type="checkbox"
-                    name="contract"
-                    id="formInput#contract"
-                    value="Full Time"
-                    class="grid place-content-center appearance-none size-6 bg-very-dark-blue/10 rounded-xs cursor-pointer transition-colors duration-200 ease-in-out before:mask-[url(/assets/images/icon-check.svg)] before:w-[15px] before:h-3 before:bg-white before:mask-no-repeat before:mask-contain before:-rotate-45 before:scale-0 focus:outline-none not-checked:focus:bg-violet/25 not-checked:hover:bg-violet/25 checked:bg-violet checked:before:rotate-0 checked:before:scale-100 before:transition-transform before:duration-500 before:ease-[cubic-bezier(0.45, 1.8, 0.5, 0.75)]"
-            />
-            <label
-                    for="formInput#contract"
-                    class="block text-base font-bold text-very-dark-blue cursor-pointer"
-            >Full Time Only</label>
-        </div>
-
-        <!-- Button:Search -->
-        <div class="min-h-20 px-6 py-4">
-            <button
-                    type="submit"
-                    class="inline-block w-full px-9 py-3.5 text-base font-bold text-white bg-violet hover:bg-light-violet rounded-md cursor-pointer transition-colors duration-200 ease-in-out"
-            >Search
-            </button>
-        </div>
-    </form>
-</section>
 
 <!-- JOB LISTING SECTION -->
 <section
@@ -86,7 +12,19 @@
     <h3
             id="job-listing-heading"
             class="sr-only"
-    >Job Listing</h3>
+    >
+        Job Listing
+    </h3>
+
+    <!-- Link:Create Post -->
+    <div class="text-right mb-14 sm:mb-6">
+        <a
+                href="/postings/create"
+                class="inline-block px-9 py-3.5 text-base font-bold text-white bg-violet hover:bg-light-violet rounded-md cursor-pointer transition-colors duration-200 ease-in-out"
+        >
+            Create Post
+        </a>
+    </div>
 
     <!-- Job Listing -->
     <div class="space-y-14 sm:space-y-6">
@@ -145,7 +83,7 @@
         <ul class="flex items-center justify-center gap-x-2">
             <li>
                 <a
-                        href="/?<?php echo escape($previousPageQuery); ?>"
+                        href="/postings/?<?php echo escape($previousPageQuery); ?>"
                         rel="prev"
                         class="<?php echo $currentPage > 1 ? 'bg-violet/10 hover:bg-violet/35 cursor-pointer transition-colors duration-200 ease-in-out' : 'bg-violet/50 pointer-events-none cursor-not-allowed'; ?> inline-block px-5 py-2.5 text-base font-bold text-violet rounded-md"
                 >&larr; Prev</a>
@@ -153,14 +91,14 @@
             <?php foreach ($pageLinks as $pageNum => $query) : ?>
                 <li>
                     <a
-                            href="/?<?php echo escape($query); ?>"
+                            href="/postings/?<?php echo escape($query); ?>"
                             class="<?php echo $pageNum + 1 === $currentPage ? 'text-white bg-violet hover:bg-light-violet' : 'text-violet bg-violet/10 hover:bg-violet/35'; ?> px-5 py-2.5 text-base font-bold rounded-md cursor-pointer transition-colors duration-200 ease-in-out"
                     ><?php echo escape($pageNum + 1); ?></a>
                 </li>
             <?php endforeach; ?>
             <li>
                 <a
-                        href="/?<?php echo escape($nextPageQuery); ?>"
+                        href="/postings/?<?php echo escape($nextPageQuery); ?>"
                         rel="next"
                         class="<?php echo $currentPage < $lastPage ? 'bg-violet/10 hover:bg-violet/35 cursor-pointer transition-colors duration-200 ease-in-out' : 'bg-violet/50 pointer-events-none cursor-not-allowed'; ?> inline-block px-5 py-2.5 text-base font-bold text-violet rounded-md"
                 >Next &rarr;</a>

@@ -45,7 +45,13 @@ class Database
         return $this->stmt->fetch();
     }
 
-    public function id(): false|string {
+    public function findAll(): array
+    {
+        return $this->stmt->fetchAll();
+    }
+
+    public function id(): false|string
+    {
         return $this->connection->lastInsertId();
     }
 }

@@ -23,7 +23,7 @@
         <div class="min-h-20 px-6 py-4 space-y-2">
             <label
                     for="formInput#name"
-                    class="inline-block text-base font-bold"
+                    class="block text-base font-bold text-very-dark-blue cursor-pointer"
             >Name</label>
             <input
                     id="formInput#name"
@@ -31,7 +31,7 @@
                     name="name"
                     placeholder="e.g. John Doe"
                     class="w-full px-4 py-3 text-base text-very-dark-blue caret-violet border-2 border-very-dark-blue/10 rounded-sm active:outline-none active:bg-violet/10 focus:outline-none focus:bg-violet/10 placeholder:text-very-dark-blue/50"
-                    value="<?php echo escape($oldFormData['name']) ?? ''; ?>"
+                    value="<?php echo escape($oldFormData['name'] ?? ''); ?>"
             />
             <?php if (array_key_exists('name', $errors)) : ?>
                 <div class="bg-light-red px-3 py-1 rounded-sm">
@@ -46,7 +46,7 @@
         <div class="min-h-20 px-6 py-4 space-y-2">
             <label
                     for="formInput#email"
-                    class="inline-block text-base font-bold"
+                    class="block text-base font-bold text-very-dark-blue cursor-pointer"
             >Email</label>
             <input
                     id="formInput#email"
@@ -54,7 +54,7 @@
                     name="email"
                     placeholder="e.g. user@domain.com"
                     class="w-full px-4 py-3 text-base text-very-dark-blue caret-violet border-2 border-very-dark-blue/10 rounded-sm active:outline-none active:bg-violet/10 focus:outline-none focus:bg-violet/10 placeholder:text-very-dark-blue/50"
-                    value="<?php echo escape($oldFormData['email']) ?? ''; ?>"
+                    value="<?php echo escape($oldFormData['email'] ?? ''); ?>"
             />
             <?php if (array_key_exists('email', $errors)) : ?>
                 <div class="bg-light-red px-3 py-1 rounded-sm">
@@ -69,7 +69,7 @@
         <div class="min-h-20 px-6 py-4 space-y-2">
             <label
                     for="formInput#password"
-                    class="inline-block text-base font-bold"
+                    class="block text-base font-bold text-very-dark-blue cursor-pointer"
             >Password</label>
             <input
                     id="formInput#password"
@@ -87,11 +87,11 @@
             <?php endif; ?>
         </div>
 
-        <!-- Input:ConfirmPassword -->
+        <!-- Input:Confirm Password -->
         <div class="min-h-20 px-6 py-4 space-y-2">
             <label
                     for="formInput#confirmPassword"
-                    class="inline-block text-base font-bold"
+                    class="block text-base font-bold text-very-dark-blue cursor-pointer"
             >Confirm Password</label>
             <input
                     id="formInput#confirmPassword"
@@ -120,17 +120,16 @@
             </p>
         </div>
 
-        <!-- Button:Search -->
+        <!-- Button:Create Account -->
         <div class="min-h-20 px-6 py-4">
             <button
                     type="submit"
-                    class="w-full px-9 py-3.5 text-base font-bold text-white bg-violet hover:bg-light-violet rounded-md cursor-pointer transition-colors duration-200 ease-in-out"
+                    class="inline-block w-full px-9 py-3.5 text-base font-bold text-white bg-violet hover:bg-light-violet rounded-md cursor-pointer transition-colors duration-200 ease-in-out"
             >
                 Create Account
             </button>
         </div>
     </form>
 </section>
-
 
 <?php include $this->resolve("partials/_footer.php"); ?>

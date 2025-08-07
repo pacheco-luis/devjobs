@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta
@@ -12,6 +13,7 @@
             href="/assets/css/main.css"
     />
 </head>
+
 <body class="max-w-3xl mx-auto px-6 bg-gradient-to-r from-indigo-100 from-10% via-sky-100 via-30% to-emerald-100 to-90%">
 <!-- HEADER -->
 <header class="flex items-center justify-between py-8">
@@ -19,6 +21,7 @@
     <a
             href="/"
             aria-label="DevJobs Home"
+            class="shrink-0"
     >
         <img
                 src="/assets/images/logo.svg"
@@ -34,39 +37,42 @@
             <?php if (isset($_SESSION['user'])) : ?>
                 <li>
                     <a
-                            href=""
+                            href="/applications"
                             class="text-base font-bold text-very-dark-blue hover:text-dark-grey transition-colors duration-200 ease-in-out"
-                    >Applications</a
-                    >
+                    >Applications</a>
                 </li>
                 <li>
                     <a
-                            href=""
+                            href="/postings"
                             class="text-base font-bold text-very-dark-blue hover:text-dark-grey transition-colors duration-200 ease-in-out"
-                    >Postings</a
-                    >
+                    >Postings</a>
                 </li>
                 <li>
-                    <a
-                            href="/logout"
-                            class="text-base font-bold text-very-dark-blue hover:text-dark-grey transition-colors duration-200 ease-in-out"
-                    >Logout</a
+                    <form
+                            action="/logout"
+                            method="POST"
                     >
+                        <?php include $this->resolve("partials/_csrf.php"); ?>
+
+                        <button
+                                type="submit"
+                                class="text-base font-bold text-very-dark-blue hover:text-dark-grey transition-colors duration-200 ease-in-out"
+                        >Logout
+                        </button>
+                    </form>
                 </li>
             <?php else : ?>
                 <li>
                     <a
                             href="/login"
                             class="text-base font-bold text-very-dark-blue hover:text-dark-grey transition-colors duration-200 ease-in-out"
-                    >Login</a
-                    >
+                    >Login</a>
                 </li>
                 <li>
                     <a
                             href="/register"
                             class="text-base font-bold text-very-dark-blue hover:text-dark-grey transition-colors duration-200 ease-in-out"
-                    >Register</a
-                    >
+                    >Register</a>
                 </li>
             <?php endif; ?>
         </ul>

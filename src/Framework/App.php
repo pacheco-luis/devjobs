@@ -42,6 +42,20 @@ class App
         return $this;
     }
 
+    public function put(string $path, array $controller): App
+    {
+        $this->router->add('PUT', $path, $controller);
+
+        return $this;
+    }
+
+    public function delete(string $path, array $controller): App
+    {
+        $this->router->add('DELETE', $path, $controller);
+
+        return $this;
+    }
+
     public function addMiddleware(string $middleware): void
     {
         $this->router->addMiddleware($middleware);
@@ -50,5 +64,10 @@ class App
     public function add(string $middleware): void
     {
         $this->router->addRouteMiddleware($middleware);
+    }
+
+    public function setErrorHandler(array $controller): void
+    {
+        $this->router->setErrorHandler($controller);
     }
 }

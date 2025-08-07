@@ -20,7 +20,7 @@ class AuthController
     {
     }
 
-    public function registerView(): void
+    public function showRegister(): void
     {
         echo $this->view->render('register.php', [
             'title' => 'Register',
@@ -38,7 +38,7 @@ class AuthController
         redirectTo('/');
     }
 
-    public function loginView(): void
+    public function showLogin(): void
     {
         echo $this->view->render('login.php', [
             'title' => 'Login',
