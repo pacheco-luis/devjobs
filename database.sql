@@ -36,3 +36,19 @@ CREATE TABLE IF NOT EXISTS `jobs` (
     CONSTRAINT `fk_jobs_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT `fk_jobs_upload` FOREIGN KEY (`logo_upload_id`) REFERENCES `uploads` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
 );
+
+CREATE TABLE IF NOT EXISTS `applications` (
+    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+    `user_id` bigint(20) unsigned NOT NULL,
+    `job_id` bigint(20) unsigned NOT NULL,
+    `resume_upload_id` bigint(20) unsigned NOT NULL,
+    `expected_salary` decimal(10,2) NOT NULL,
+    `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    KEY `fk_applications_user_idx` (`user_id`),
+    KEY `fk_applications_job_idx` (`job_id`),
+    KEY `fk_applications_upload_idx` (`resume_upload_id`),
+    CONSTRAINT `fk_applications_job_idx` FOREIGN KEY (`job_id`) REFERENCES `jobs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT `fk_applications_user_idx` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT `fk_applications_upload_idx` FOREIGN KEY (`resume_upload_id`) REFERENCES `uploads` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
+);

@@ -12,6 +12,7 @@ use App\Services\{
     ValidatorService,
     UserService,
     PostingService,
+    ApplicationService,
     UploadService
 };
 
@@ -32,6 +33,11 @@ return [
         $db = $container->get(Database::class);
 
         return new PostingService($db);
+    },
+    ApplicationService::class => function (Container $container) {
+        $db = $container->get(Database::class);
+
+        return new ApplicationService($db);
     },
     UploadService::class => function (Container $container) {
         $db = $container->get(Database::class);

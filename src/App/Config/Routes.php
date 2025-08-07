@@ -10,6 +10,7 @@ use App\Controllers\{
     AuthController,
     PostingController,
     UploadController,
+    ApplicationController,
     ErrorController
 };
 use App\Middleware\{
@@ -28,6 +29,8 @@ function registerRoutes(App $app): void
     $app->get('/postings/{posting}/edit', [PostingController::class, 'edit'])->add(AuthRequiredMiddleware::class);
     $app->put('/postings/{posting}', [PostingController::class, 'update'])->add(AuthRequiredMiddleware::class);
     $app->delete('/postings/{posting}', [PostingController::class, 'destroy'])->add(AuthRequiredMiddleware::class);
+
+    $app->get('/applications', [ApplicationController::class, 'index'])->add(AuthRequiredMiddleware::class);
 
     $app->get('/uploads/{upload}/download', [UploadController::class, 'download'])->add(AuthRequiredMiddleware::class);
 
